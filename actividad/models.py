@@ -13,8 +13,11 @@ class actividad(models.Model):
 
     status=[(Activo,'Activo'),(Cancelado,'Cancelada'),(Realizado,'Realizada')]
     property=models.ForeignKey(propiedad,on_delete=models.CASCADE)
-    schedule=models.DateTimeField(auto_now_add=True)
+    schedule=models.DateTimeField(auto_now_add=False)
     title=models.CharField(max_length=255)
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=DateTimeField(auto_now_add=True)
     status=models.CharField(max_length=35,choices=status,default=Activo)
+
+    def __str__(self):
+        return self.title

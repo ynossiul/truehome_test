@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.urls.conf import include
+#las dirrecciones a la cuales se redirecciona la pagina 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('property/',include('propiedad.urls')),
+    path('activity/',include('actividad.urls')),
+    path('survery/',include('encuesta.urls'))
 ]
